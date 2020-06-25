@@ -249,22 +249,6 @@ Jaka jest funkcja planisty dysk?
 Planowanie dysku. Decyzja o wyborze żądania we-wy spośród żądań
 zgłoszonych przez procesy.
 
-Które poziomy planowania obecnie nie wytępują we współczesnych systemach?
-● Planowanie długoterminowe. Decyzja o dodaniu procesu do puli procesów
-wykonywanych (systemy wsadowe).
-– Określa stopień wieloprogramowości.
-● Planowanie średnioterminowe. Decyzja o dodaniu (usunięciu) procesu do puli
-procesów częściowo lub całkowicie obecnych w pamięci.
-– Związane z wymianą i zarządzaniem pamięcią.
-● Planowanie krótkoterminowe. Decyzja o przyznaniu procesowi (w stanie
-Gotowy) procesora. (dzisiejszy wykład)
-● Planowanie dysku. Decyzja o wyborze żądania we-wy spośród żądań
-zgłoszonych przez procesy.
-● W interakcyjnych systemach z podziałem czasu planowanie długoterminowe
-(często również planowanie średnioterminowe) może nie występować.
-Przykład: Linux. 
-
-
 Co to jest wywłaszczenie?
 Planowanie możemy wykonywać gdy proces:
 1. Przeszedł do stanu aktywnego do stanu oczekiwania (uśpienia) n.p. z powodu
@@ -278,43 +262,6 @@ planowaniu bez wywłaszczania. Procesowi nigdy nie zostanie odebrany procesor,
 chyba że proces sam zrzeknie się procesora.
 Jeżeli planowania dokonujemy dodatkowo w sytuacjach 2. i 3. to mówimy o
 planowaniu z wywłaszczaniem.
-
-Symulacja algorytm SJF 2 wersje FCFS RUN Robin
-Diagram  Gannta
-
-Co to jest postarzanie?
-● Postarzanie (ang aging): Zwiększaj priorytet procesu długo oczekującego na
-procesor
-
-
-
-Wykład VII
-
-
-
-
-Wykład VIII
-
-
-
-Wykład IX
-
-
-
-Wykład X
-Wiadomo że większy rozmiar bloku prowadzi do większej wydajności systemu pliku, dlaczego zatem nie spotyka się bloków o rozmiarze 256 MB?
-
-Do czego służy system plików z kroniką
-
-Do czego służy blok indeksowy
-
-Gdzie w systemie plików MS docs są przechowywane atrybuty wszelkie pliku
-
-Podaj wady ciągłej alokacji systemu plików
-
-Która ze znanych ci metod alokacji bloków plikom zupełnie nie nadaje się do plików o dostępie swobodnym
-
-Dlaczego za pomocą plików odwzorowanych pamięci, możemy otrzymać najszybszy możliwy odczyt pliku z pamięci
 
 
 Wykład XI
@@ -406,3 +353,26 @@ Procesy klasy SCHED_RR (RR to round robin) o identycznym priorytecie
 statycznym są planowane w ramach algorytmu rotacyjnego.
 System Uniksowy zgodny ze standardem POSIX1.b jest systemem klasy soft realtime.
 
+WYKŁAD X
+Wiadomo że większy rozmiar bloku prowadzi do większej wydajności systemu pliku, dlaczego zatem nie spotyka się bloków o rozmiarze 256 MB?
+
+
+
+Do czego służy system plików z kroniką
+Kronika jest specjalnym plikiem przeznaczonym tylko do dopisywania. Zapisuje się ją sekwencyjnie, dużymi partiami, zwykle całą ścieżkę naraz. Kronika umożliwia szybkie postawienie systemu po awarii.
+
+do czego służy blok indeksowy
+blok dyskowy użytkowany w przydziale indeksowym, zawierajacy indeksy do bloków z danymi. W systemie UNIX i w nie wszystkich bazach danych b.i. moga miec dwa albo trzy poziomy; wówczas b.i. jednego poziomu moze wskazywac na b.i. nastepnego poziomu
+
+Gdzie w systemie plików MS docs są przechowywane atrybuty wszelkie pliku
+Atrybuty przechowują dane zarówno widoczne dla użytkownika (długość,prawa dostępu, daty) jak i niewidoczne np. numer(y) bloków. Rozwiązanie z systemu MS-DOS wszystkie atrybuty przechowywane są w katalogu
+
+podaj wady ciągłej alokacji systemu plików
+Może powstać fragmentacja (podobnie jak w przypadku pamięci RAM) – a kompakcja w pamięci dyskowej jest bardzo wolna. 
+Musimy z góry znać maksymalny rozmiar pliku przy jego tworzeniu – problemy przy zwiększaniu rozmiaru pliku.
+
+która ze znanych ci metod alokacji bloków plikom zupełnie nie nadaje się do plików o dostępie swobodnym
+Alokacja listowa nie nadaje się do dostępu swobodnego, ponieważ aby wykonać operację seek musimy przeczytać wiele bloków na liście
+
+dlaczego za pomocą plików odwzorowanych pamięci, możemy otrzymać najszybszy możliwy odczyt pliku z pamięci
+Tworzona jest tablica stron, ale bez przydziału ramek.  Przy próbie odczytu wyjątek błędu strony powoduje wczytanie odpowiedniej strony (często strona == 4 bufory) z pliku. Przy zapisie może zajść konieczność wcześniejszego wczytania stron.
