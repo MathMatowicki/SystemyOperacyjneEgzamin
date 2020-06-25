@@ -291,6 +291,39 @@ procesor
 Wykład VII
 
 
+Co to jest fragmentacja wewnętrzna?
+
+
+Co to jest fragmentacja zewnętrzna?
+
+
+W jakich mechanizmach zarządzania pamięcią np:
+partycjonowanie statyczne
+partycjonowanie dynamiczne
+stronicowanie
+Występuje fragmentacja wew a w jakich zew
+
+Co to jest kompakcja?
+
+
+Do czego służy tablica stron?
+
+
+Do czego służy rejestr bazowy tablicy stron?
+
+
+Czy w systemie operacyjnym z ochroną instrukcja modyfikujaca wartosc rejestru bazowego musi byc instrukcja uprzywilejowany?
+
+
+Dlaczego przełączenie pomiędzy kontekstami tego samego procesu sa szybsze?
+
+
+Podaj przykład wspóldzielenia pamięci i jej realizacji?
+
+
+Dlaczego w klasycznych implementacjach stronicowania stosuje sie stronicowanie dwupoziomowe?
+
+
 
 
 Wykład VIII
